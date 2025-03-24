@@ -22,6 +22,26 @@ export class Tree {
 
     return node;
   }
+
+  deleteItem(value, node = this.root) {
+    if (!node) return null;
+
+    if (value < node.data) {
+      node.left = this.deleteItem(value, node.left);
+    } else if (value > node.data) {
+      node.right = this.deleteItem(value, node.right);
+    } else {
+      if (!node.left) return node.right;
+      if (!node.right) return node.left;
+
+      let minNode = node.right;
+      while (minNode.left) minNode = minNode.left;
+      node.data = minNode.data;
+      node.right = this.deleteItem(value, node.right);
+    }
+
+    return node;
+  }
 }
 
 const buildTree = (arr) => {

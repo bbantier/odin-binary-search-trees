@@ -20,3 +20,7 @@ complexTree.insert(7453);
 complexTree.insert(28);
 
 prettyPrint(complexTree.root);
+
+complexTree.deleteItem(23);
+
+prettyPrint(complexTree.root);
