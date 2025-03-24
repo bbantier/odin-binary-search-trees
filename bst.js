@@ -42,6 +42,18 @@ export class Tree {
 
     return node;
   }
+
+  find(value, node = this.root) {
+    if (!node) return null;
+
+    if (node.data > value) {
+      return this.find(value, node.left);
+    } else if (node.data < value) {
+      return this.find(value, node.right);
+    } else {
+      return node;
+    }
+  }
 }
 
 const buildTree = (arr) => {

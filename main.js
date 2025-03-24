@@ -8,7 +8,7 @@ const simpleTree = new Tree(simpleArray)
 simpleTree.insert(9);
 simpleTree.insert(10);
 
-prettyPrint(simpleTree.root);
+// prettyPrint(simpleTree.root);
 
 
 // Example with an array that has duplicates and is unsorted
@@ -19,8 +19,11 @@ complexTree.insert(2);
 complexTree.insert(7453);
 complexTree.insert(28);
 
-prettyPrint(complexTree.root);
+// prettyPrint(complexTree.root);
 
 complexTree.deleteItem(23);
 
 prettyPrint(complexTree.root);
+
+console.log(complexTree.find(7));
+console.log(complexTree.find(67));
