@@ -94,6 +94,16 @@ export class Tree {
     this.postOrder(callback, node.right);
     callback(node);
   }
+
+  height(node) {
+    if (!node) return -1;
+
+    const leftHeight = this.height(node.left);
+    const rightHeight = this.height(node.right);
+    const maxHeight = Math.max(leftHeight, rightHeight) + 1;
+
+    return maxHeight;
+  }
 }
 
 const buildTree = (arr) => {
