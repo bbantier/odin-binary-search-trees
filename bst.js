@@ -59,19 +59,40 @@ export class Tree {
     const queue = [];
 
     if (typeof callback !== "function") {
-      throw new Error("Parameter should be a callback function.");
+      throw new Error("Parameter should be a callback function");
     }
 
     if (!this.root) return;
     queue.push(this.root);
 
-    while(queue.length) {
+    while (queue.length) {
       let current = queue.shift();
 
       callback(current);
       if (current.left) queue.push(current.left);
       if (current.right) queue.push(current.right);
     }
+  }
+
+  inOrder(callback, node = this.root) {
+    if (!node) return;
+    this.inOrder(callback, node.left);
+    callback(node);
+    this.inOrder(callback, node.right);
+  }
+
+  preOrder(callback, node = this.root) {
+    if (!node) return;
+    callback(node);
+    this.preOrder(callback, node.left);
+    this.preOrder(callback, node.right);
+  }
+
+  postOrder(callback, node = this.root) {
+    if (!node) return;
+    this.postOrder(callback, node.left);
+    this.postOrder(callback, node.right);
+    callback(node.data);
   }
 }
 
