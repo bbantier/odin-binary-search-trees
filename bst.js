@@ -54,6 +54,25 @@ export class Tree {
       return node;
     }
   }
+
+  levelOrder(callback) {
+    const queue = [];
+
+    if (typeof callback !== "function") {
+      throw new Error("Parameter should be a callback function.");
+    }
+
+    if (!this.root) return;
+    queue.push(this.root);
+
+    while(queue.length) {
+      let current = queue.shift();
+
+      callback(current);
+      if (current.left) queue.push(current.left);
+      if (current.right) queue.push(current.right);
+    }
+  }
 }
 
 const buildTree = (arr) => {

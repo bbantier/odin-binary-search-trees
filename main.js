@@ -8,11 +8,6 @@ tree.insert(2);
 tree.insert(7453);
 tree.insert(28);
 
-// prettyPrint(tree.root);
-
 tree.deleteItem(23);
 
 prettyPrint(tree.root);
-
-console.log(tree.find(7));
-console.log(tree.find(67));
