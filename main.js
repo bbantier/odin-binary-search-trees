@@ -11,5 +11,3 @@ tree.insert(28);
 tree.deleteItem(23);
 
 prettyPrint(tree.root);
-
-tree.postOrder(console.log);

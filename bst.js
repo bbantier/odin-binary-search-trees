@@ -92,7 +92,7 @@ export class Tree {
     if (!node) return;
     this.postOrder(callback, node.left);
     this.postOrder(callback, node.right);
-    callback(node.data);
+    callback(node);
   }
 }
 
