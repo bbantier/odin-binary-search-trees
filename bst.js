@@ -97,12 +97,7 @@ export class Tree {
 
   height(node) {
     if (!node) return -1;
-
-    const leftHeight = this.height(node.left);
-    const rightHeight = this.height(node.right);
-    const maxHeight = Math.max(leftHeight, rightHeight) + 1;
-
-    return maxHeight;
+    return Math.max(this.height(node.left), this.height(node.right)) + 1;
   }
 }
 
