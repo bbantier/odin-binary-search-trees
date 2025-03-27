@@ -137,6 +137,13 @@ export class Tree {
 
     return !subtreeBalance.some((balance) => balance === false);
   }
+
+  rebalance() {
+    const newArray = [];
+
+    this.inOrder((node) => newArray.push(node.data));
+    this.root = buildTree(newArray);
+  }
 }
 
 const buildTree = (arr) => {
