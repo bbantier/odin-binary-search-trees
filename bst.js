@@ -130,7 +130,9 @@ export class Tree {
     const subtreeBalance = [];
 
     this.inOrder((node) => {
-      subtreeBalance.push(Math.abs(this.height(node.right) - this.height(node.left)) <= 1);
+      subtreeBalance.push(
+        Math.abs(this.height(node.right) - this.height(node.left)) <= 1
+      );
     });
 
     return !subtreeBalance.some((balance) => balance === false);
