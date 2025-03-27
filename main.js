@@ -5,12 +5,9 @@ const array = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 const tree = new Tree(array);
 
 tree.insert(2);
-tree.insert(7453);
 tree.insert(28);
-
-tree.deleteItem(23);
+tree.insert(7453);
 
 prettyPrint(tree.root);
 
-console.log(tree.depth(tree.find(7)));
-console.log(tree.depth(tree.find(7453)));
+console.log(tree.isBalanced());

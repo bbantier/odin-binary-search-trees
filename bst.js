@@ -75,21 +75,36 @@ export class Tree {
   }
 
   inOrder(callback, node = this.root) {
+    if (typeof callback !== "function") {
+      throw new Error("Parameter should be a callback function");
+    }
+
     if (!node) return;
+
     this.inOrder(callback, node.left);
     callback(node);
     this.inOrder(callback, node.right);
   }
 
   preOrder(callback, node = this.root) {
+    if (typeof callback !== "function") {
+      throw new Error("Parameter should be a callback function");
+    }
+
     if (!node) return;
+
     callback(node);
     this.preOrder(callback, node.left);
     this.preOrder(callback, node.right);
   }
 
   postOrder(callback, node = this.root) {
+    if (typeof callback !== "function") {
+      throw new Error("Parameter should be a callback function");
+    }
+
     if (!node) return;
+
     this.postOrder(callback, node.left);
     this.postOrder(callback, node.right);
     callback(node);
@@ -109,6 +124,16 @@ export class Tree {
       node.data < current.data ? current.left : current.right,
       depth + 1
     );
+  }
+
+  isBalanced() {
+    const subtreeBalance = [];
+
+    this.inOrder((node) => {
+      subtreeBalance.push(Math.abs(this.height(node.right) - this.height(node.left)) <= 1);
+    });
+
+    return !subtreeBalance.some((balance) => balance === false);
   }
 }
 
