@@ -12,6 +12,5 @@ tree.deleteItem(23);
 
 prettyPrint(tree.root);
 
-console.log(tree.height(tree.find(8)));
-console.log(tree.height(tree.find(4)));
-console.log(tree.height(tree.find(324)));
+console.log(tree.depth(tree.find(7)));
+console.log(tree.depth(tree.find(7453)));

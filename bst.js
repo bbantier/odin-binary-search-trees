@@ -99,6 +99,17 @@ export class Tree {
     if (!node) return -1;
     return Math.max(this.height(node.left), this.height(node.right)) + 1;
   }
+
+  depth(node, current = this.root, depth = 0) {
+    if (!current) return;
+    if (node === current) return depth;
+
+    return this.depth(
+      node,
+      node.data < current.data ? current.left : current.right,
+      depth + 1
+    );
+  }
 }
 
 const buildTree = (arr) => {
